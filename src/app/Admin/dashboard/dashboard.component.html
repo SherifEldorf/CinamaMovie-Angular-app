@@ -1,0 +1,125 @@
+<div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <h4>لوحة التحكم</h4>
+        </div>
+
+        <ul class="list-unstyled components">
+            <p>Dummy Heading</p>
+            <li class="active">
+                <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false"
+                    class="dropdown-toggle">المستخدمين</a>
+                <ul class="collapse list-unstyled" id="homeSubmenu">
+                    <li>
+                        <a (click)="CheckUser()">قائمة المستخدمين</a>
+                    </li>
+                    <li>
+                        <a (click)="CheckUserRoleList()">صلاحيات المستخدمين</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageCategory" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">التصنيفات</a>
+                <ul class="collapse list-unstyled" id="pageCategory">
+                    <li>
+                        <a (click)="GetCategoryList()">التصنيفات الأساسية</a>
+                    </li>
+                    <li>
+                        <a (click)="GetSubCategoryList()">التصنيفات الفرعية</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#pageMovie" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">أفلام ومسلسلات</a>
+                <ul class="collapse list-unstyled" id="pageMovie">
+                    <li>
+                        <a (click)="GetActorList()">قائمة الممثلين</a>
+                    </li>
+                    <li>
+                        <a (click)="GetMovieList()">قائمة الأفلام</a>
+                    </li>
+                    <li>
+                        <a (click)="GetMovieLinkList()">قائمة الروابط</a>
+                    </li>
+                    <li>
+                        <a (click)="GetMovieActorList()">قائمة ممثلين الافلام</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">About</a>
+            </li>
+            <li>
+                <a href="#">Portfolio</a>
+            </li>
+            <li>
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+
+        <ul class="list-unstyled CTAs">
+            <li>
+                <a href="https://bootstrapious.com/tutorial/files/sidebar.zip" class="download">Download source</a>
+            </li>
+            <li>
+                <a href="https://bootstrapious.com/p/bootstrap-sidebar" class="article">Back to article</a>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid btn-res">
+                <button type="button" id="sidebarCollapse" class="btn btn-dark">
+                    <i class="fa fa-align-left"></i>
+                </button>
+                <div class="pl-2 pr-2 title" style="display:inline-block;"> 
+                    لوحة التحكم
+                </div>
+            </div>
+           
+        </nav>
+
+        <div class="container main-panel">
+            <div *ngIf="isUserList">
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة المستخدمين</strong>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success mb-3" (click)="AddUser()">اضافة جديد</button>
+                </div>
+                <app-users></app-users>
+            </div>
+            <div *ngIf="isUserRolesList">
+                <div class="alert alert-primary" role="alert">
+                    <strong>قائمة صلاحيات المستخدمين</strong>
+                </div>
+                <app-user-roles></app-user-roles>
+            </div>
+            <div *ngIf="isAddUser">
+                <app-add-user></app-add-user>
+            </div>
+            <div *ngIf="isCategoryList">
+                <app-categry-list></app-categry-list>
+            </div>
+            <div *ngIf="isSubCategoryList">
+                <app-sub-category-list></app-sub-category-list>
+            </div>
+            <div *ngIf="isActorList">
+                <app-actor-list></app-actor-list>
+            </div>
+            <div *ngIf="isMovieList">
+                <app-movie-list></app-movie-list>
+            </div>
+            <div *ngIf="isMovieLinkList">
+                <app-movie-link-list></app-movie-link-list>
+            </div>  
+            <div *ngIf="isMovieActorList">
+                <app-movie-actor-list></app-movie-actor-list>
+            </div>
+        </div>
+    </div>
+</div>
